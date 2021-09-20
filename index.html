@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+
+    <title>json Request</title>
+
+    
+  </head>
+
+  <body>
+
+      <h1>requesting data from server</h1>
+
+    <script>
+    const h1Text = document.querySelector('h1');
+    h1Text.textContent = 'no error here';
+
+    let requestURL = '/personalInfo.json';
+    let request = new XMLHttpRequest();
+    request.open('GET', requestURL);
+    request.responseType = 'text';
+    request.send();
+
+    request.onload = function() {
+      const serverResponse = request.response;
+      const newText = JSON.parse(serverResponse);
+      createNewText(newText);
+    };
+    let createNewText = function(jsonObj) {
+      h1Text.textContent = jsonObj.username;
+    };
+    //let httpURL = '/personalInfo.json'
+    //request.open('POST', httpURL);
+    //request.setRequestHeader("content-type", "aplication/json;charset=UTF-8");
+    //request.send(JSON.stringify({"email": "emai@mail.com"}));
+    </script>
+  </body>
+</html>
