@@ -16,7 +16,7 @@
     const h1Text = document.querySelector('h1');
     h1Text.textContent = 'no error here';
 
-    let requestURL = '/personalInfo';
+    let requestURL = 'https://raw.githubusercontent.com/rakanishudDev/ProjectRegularExpressions/main/accountInfo.json';
     let request = new XMLHttpRequest();
     request.open('GET', requestURL);
     request.responseType = 'text';
